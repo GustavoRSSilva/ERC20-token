@@ -17,6 +17,7 @@ contract TestGtoken {
 
   function testInitialBalanceWithNewGtoken() public {
     uint expected = 1000;
+    Assert.equal(gtoken.totalSupply(), expected, "The total supply is equal to 1000");
     Assert.equal(gtoken.balanceOf(tx.origin), expected, "Owner should have 1000 Gtoken initially");
   }
 

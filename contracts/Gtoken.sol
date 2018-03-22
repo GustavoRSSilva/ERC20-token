@@ -3,7 +3,7 @@ pragma solidity ^0.4.19;
 
 contract ERC20Interface {
     function totalSupply() public constant returns (uint);
-    function balanceOf(address tokenOwner) public returns (uint balance);
+    function balanceOf(address tokenOwner) public constant returns (uint balance);
     function allowance(address tokenOwner, address spender) public constant returns (uint remaining);
     function transfer(address to, uint tokens) public returns (bool success);
     function approve(address spender, uint tokens) public returns (bool success);
@@ -30,7 +30,9 @@ contract Token is ERC20Interface {
         balances[_to] += _value;
         Transfer(msg.sender, _to, _value);
         return true;
-      } else { return false; }
+      } else {
+        return false;
+      }
     }
 
 
@@ -46,7 +48,7 @@ contract Token is ERC20Interface {
       }
     }
 
-    function balanceOf(address _owner) public returns (uint balance) {
+    function balanceOf(address _owner) public constant returns (uint balance) {
       return balances[_owner];
     }
 
