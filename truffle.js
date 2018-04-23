@@ -13,13 +13,15 @@ module.exports = {
       provider: function() {
         return new HDWalletProvider(process.env.INFURA_ROPSTEN_MNEMONIC, `https://ropsten.infura.io/${process.env.INFURA_KEY}`)
       },
-      network_id: "3"
+      network_id: "3",
+      gas: 4700000
     },
     main: {
       provider: function() {
         return new HDWalletProvider(process.env.INFURA_MAINNET_MNEMONIC, `https://mainnet.infura.io/${process.env.INFURA_KEY}`)
       },
-      network_id: "1"
+      network_id: "1",
+      gas: 4700000
     }
   },
   solc: {
